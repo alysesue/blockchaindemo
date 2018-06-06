@@ -1,0 +1,21 @@
+﻿@model HomeIndexViewModel
+
+<h4 class="mt-5">See how the blockchain is formed:</h4>
+@foreach (var item in Model.HomeDisplayBlocksViewModel.BlockList)
+{
+    <div class="col-md mt-4" style="font-size:12px">
+        <div class="card" style="width:100%; background-color:darkblue">
+            <div class="card-body">
+                <h5 class="card-title" style="color:white">BLOCK: @item.Index</h5>
+                <p class="card-text" style="color:white">CURRENTHASH: @item.CurrentHash</p>
+                <p class="card-text" style="color:white">PREVIOUSHASH: @item.PreviousHash</p>
+                <p class="card-text" style="color:white">DATA: @item.Data </p>
+                <p class="card-text" style="color:white">TIMESTAMP: @item.TimeStamp</p>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

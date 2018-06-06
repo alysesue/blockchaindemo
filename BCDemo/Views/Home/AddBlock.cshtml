@@ -1,0 +1,13 @@
+﻿@model HomeAddBlockViewModel
+
+<h4 class="mt-5">Try adding a block:</h4>
+<form asp-controller="Home" asp-action="AddBlock" method="Post" class="form-inline mt-4" style="font-size:16px">
+
+    <div class="input-group mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="Data"></label>
+        <input type="text" class="form-control" style="border-bottom-left-radius:5px; border-top-left-radius:5px" asp-for="Data">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit" style="font-size:16px">Add Block</button>
+        </div>
+    </div>
+</form>

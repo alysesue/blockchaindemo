@@ -1,0 +1,192 @@
+﻿@using Microsoft.AspNetCore.Mvc.ViewFeatures
+@model HomeIndexViewModel
+
+<header class="masthead" style="height:100%">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-12">
+                <div class="header-content mx-auto mb-5" style="height:480px; margin-top:250px">
+                    <div>
+                        <h4 class="mb-5">This interactive blockchain demo will provide an easy-to-understand introduction to blockchains, cryptocurrencies and wallets</h4>
+                        <p>Begin Demo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row h-100">
+            <div class="col-lg-7">
+                <div class="header-content mx-auto mt-5 mb-5">
+                    <div>
+                        @{
+                            HomeAddBlockViewModel addBlock = new HomeAddBlockViewModel();
+                            Html.RenderPartial("~/Views/Home/AddBlock.cshtml", addBlock);
+                        }
+                    </div>
+                    <div>
+                        @Html.Partial("DisplayBlocks", Model)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+                                <div class="col-md mt-5">
+                                    <div class="card" style="width:100%; background-color:lightgrey; border:dashed; border-color:darkblue">
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="color:darkblue">Adding blocks explained</h5>
+                                            <p style="color:darkblue; font-size:14px">BLOCKS</p>
+                                            <ul class="card-text" style="color:darkblue; font-size:14px">
+                                                <li>A block contains the following information: current hash, previous hash, data and timestamp</li>
+                                                <li>Block 0 is the genesis block or first block</li>
+                                                <li>The previous hash is the current hash of the previous block</li>
+                                                <li>The hash is created from all block information</li>
+                                                <li>If information in the block changes, the hash will not be valid. The hashes of previous blocks is also rendered invalid.</li>
+                                            </ul>
+                                            <p style="color:darkblue; font-size:14px">BLOCKCHAIN</p>
+                                            <ul class="card-text" style="color:darkblue; font-size:14px">
+                                                <li>A chain of blocks is formed as blocks are added, connected via the previous hash</li>
+                                                <li>A blockchain is made up of a network of decentralised nodes or computers</li>
+                                                <li>A blockchain can serve as a database of transactional information that is synced across all nodes in the network</li>
+                                                <li>When a transaction is performed, it is relayed across the network. If the transaction is deemed valid, the transaction information will be included in the next block</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="button">
+                                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<header class="masthead" style="height:100%">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto mt-5 mb-5">
+                    <h4 class="mt-5">This is your wallet:</h4>
+                    <div class="card mx-auto mt-4" style="width:100%; background-color:darkmagenta">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:white">MY WALLET</h5>
+                            <img src="#" alt="Profile Pic" />
+                            <p class="card-text" style="color:white">Private Key: 904627390237</p>
+                            <p class="card-text" style="color:white">Public Key: 1234544345433</p>
+                            <p class="card-text" style="color:white">Balance: </p>
+                            <p>-------------------------------------------------------------------</p>
+                            @*@foreach (var tx in Model.HomeDisplayWalletViewModel.CoinInputList.Where(s => s.WalletId == item.WalletId))
+                                {
+                                    <p class="card-text" style="color:white">Id: @tx.CoinInputId</p>
+                                    <p class="card-text" style="color:white">Signature: @tx.Signature</p>
+                                    <p class="card-text" style="color:white">Amount: @tx.Amount</p>
+                                }*@
+                            <a class="btn btn-primary" style="background-color:purple" href="@Url.Action("AddCoinIn","Home", new { publicKey = 1234544345433})">Buy Coin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+
+                                <div class="col-md mt-5">
+                                    <div class="card" style="width:100%; background-color:lightgrey; border:dashed; border-color:darkblue">
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="color:darkblue">Your wallet explained</h5>
+                                            <ul class="card-text" style="color:darkblue; font-size:14px">
+                                                <li>Your wallet holds your public key</li>
+                                                <li>You also have a private key, which your public key is derived from</li>
+                                                <li>The public key is the address where others can send you cryptocurrency</li>
+                                                <li>Your wallet does not store cryptocurrency, it only displays cryptocurrency transactions</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="button">
+                                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<header class="masthead" style="height:100%">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto mt-5 mb-5">
+                    <div>
+                        @{
+                            HomeAddWalletViewModel addWallet = new HomeAddWalletViewModel();
+                            Html.RenderPartial("~/Views/Home/AddWallet.cshtml", addWallet);
+                        }
+                    </div>
+                    <div>
+                        @Html.Partial("DisplayWallet", Model)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+
+                                <div class="col-md mt-5">
+                                    <div class="card" style="width:100%; background-color:lightgrey; border:dashed; border-color:darkblue">
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="color:darkblue">Try adding a wallet</h5>
+                                            <p style="color:darkblue; font-size:14px">WALLETS</p>
+                                            <ul class="card-text" style="color:darkblue; font-size:14px">
+                                                <li>When a wallet is created, a unique public and private key is created for the user</li>
+                                                <li> A wallet can be a node or computer that is part of the network</li>
+                                                <li></li>
+                                            </ul>
+                                            <p style="color:darkblue; font-size:14px">TRANSACTIONS</p>
+                                            <ul class="card-text" style="color:darkblue; font-size:14px">
+                                                <li>When a wallet is created, a unique public and private key is created for the user</li>
+                                                <li> A wallet can be a node or computer that is part of the network</li>
+                                                <li>Miners to mine blocks to verify transactions are valid and if they mine the next block they will add a new block of transactions to the blockchain</li>
+                                                <li>A block also has a <i>difficulty</i> and nonce property - difficulty is a number that controls how long it takes a miner to add a new block and is set by the network i.e. difficulty is the number of leading zeroes a block hash has</li>
+                                                <li>The information in a block is predetermined so the only property you can change is the nonce, you keep changing the nonce until you get a hash which has the correct number of leading zeroes</li>
+                                                <li>A blockchain can exist without cryptocurrency. Crytocurrency provides incentive for nodes to mine blocks.</li>
+                                                <li>The purpose of mining a block, is to verify to that a transaction is valid, and to include the transaction information in a block in the blockchain.</li>
+                                                <li>Mining uses compute power so miners should be incentivised and rewarded for being part of the network</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="button">
+                                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+

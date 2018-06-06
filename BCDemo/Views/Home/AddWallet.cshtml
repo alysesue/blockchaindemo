@@ -1,0 +1,13 @@
+﻿@model HomeAddWalletViewModel
+
+<h4 class="mt-5">Try creating a wallet for someone else:</h4>
+<form asp-controller="Home" asp-action="AddWallet" method="Post" class="form-inline mt-4">
+
+    <div class="input-group mb-3">
+        <label class="col-sm-2 col-form-label" asp-for="Name"></label>
+        <input type="text" class="form-control" style="border-bottom-left-radius:5px; border-top-left-radius:5px" asp-for="Name">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Create Wallet</button>
+        </div>
+    </div>
+</form>

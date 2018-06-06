@@ -1,0 +1,24 @@
+﻿@model HomeIndexViewModel
+
+<h4 class="mt-5">See other wallets in the network:</h4>
+@foreach (var item in Model.HomeDisplayWalletViewModel.WalletList)
+{
+    <div class="col-md mt-4">
+        <div class="card mx-auto" style="width:100%; background-color:royalblue">
+            <div class="card-body">
+                <h5 class="card-title" style="color:white">NAME: @item.Name</h5>
+                <p class="card-text" style="color:white">PPRIVATE KEY: @item.PrivateKey</p>
+                <p class="card-text" style="color:white">PUBLIC KEY: @item.PublicKey</p>
+                <p>-------------------------------------------------------------------</p>
+                @foreach (var tx in Model.HomeDisplayWalletViewModel.CoinInputList.Where(s => s.WalletId == item.WalletId))
+                {
+                    <p class="card-text" style="color:white">Id: @tx.CoinInputId</p>
+                    <p class="card-text" style="color:white">Signature: @tx.Signature</p>
+                    <p class="card-text" style="color:white">Amount: @tx.Amount</p>
+                }
+                @*<a class="btn btn-primary" style="background-color:purple" href="@Url.Action("AddCoinIn","Home", new { publicKey = item.PublicKey})">Buy Coin</a>*@
+                <a class="btn btn-primary" style="background-color:purple" href="@Url.Action("AddCoinOut","Home", new { publicKey = item.PublicKey})">Send Coin To This Wallet</a>
+            </div>
+        </div>
+    </div>
+}

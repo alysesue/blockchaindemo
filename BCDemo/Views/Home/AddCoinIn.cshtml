@@ -1,0 +1,84 @@
+﻿@model HomeAddCoinInViewModel
+
+
+<header class="masthead" style="height:100%">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto">
+                    <h4 class="mt-5">Buy coin</h4>
+                    <form asp-controller="Home" asp-action="AddCoinIn" method="Post" class="form-inline mt-4" style="font-size:16px">
+
+                        <div>
+                            <label class="col-sm-2 col-form-label" hidden asp-for="Index"></label>
+                        </div>
+                        <div>
+                            <label class="col-sm-2 col-form-label" hidden asp-for="Signature"></label>
+                        </div>
+                        <div>
+                            <label class="col-sm-2 col-form-label" hidden asp-for="WalletId"></label>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div>
+                                <label class="col-sm-2 col-form-label" asp-for="OwnerPublicKey"></label>
+                                <input type="text" class="form-control" readonly style="border-bottom-left-radius:5px; border-top-left-radius:5px" asp-for="OwnerPublicKey">
+                            </div>
+                            <div>
+                                <label class="col-sm-2 col-form-label" asp-for="Amount"></label>
+                                <input type="text" class="form-control" style="border-bottom-left-radius:5px; border-top-left-radius:5px" asp-for="Amount">
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit" style="font-size:16px">Buy Coin</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+
+                                <div class="col-md mt-5">
+                                    <div class="card" style="width:100%; background-color:lightgrey; border:dashed; border-color:darkblue">
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="color:darkblue">Adding coin explained</h5>
+                                            <p class="card-text" style="color:darkblue">
+                                                Before you can send coin you must add to yur coin balance.
+                                                Much like your bank account if you do not have funds you can not send coin.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="button">
+                                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
